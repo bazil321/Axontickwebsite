@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --dark: #202831;
+  --dark2: #364856;
+  --muted: #618196;
+  --border: #464646;
+  --border-light: #eff2f5;
+  --bg-off: #f7f8fa;
+  --gold: #f0c62e;
+  --white: #ffffff;
+  --shadow-card:
+    5px 5px 0 rgba(0, 0, 0, 0.35),
+    10px 10px 0 rgba(14, 10, 4, 0.22),
+    15px 15px 0 rgba(0, 0, 0, 0.14),
+    20px 20px 0 rgba(0, 0, 0, 0.07);
+
+  --background: var(--white);
+  --foreground: var(--dark);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-dark: var(--dark);
+  --color-dark2: var(--dark2);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-bg-off: var(--bg-off);
+  --color-border-light: var(--border-light);
+  --shadow-card: var(--shadow-card);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* Base Utility Classes */
+.container-custom {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .container-custom {
+    padding: 0 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container-custom {
+    padding: 0 20px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .72s ease, transform .72s ease;
+}
+
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 28s linear infinite;
+}
+
+.animate-fadeDown {
+  animation: fadeDown 0.6s ease both;
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease both;
 }

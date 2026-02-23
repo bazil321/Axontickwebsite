@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String
+}
+
+model Stat {
+  id     String @id @default(cuid())
+  number String
+  suffix String
+  label  String
+  order  Int    @default(0)
+}
+
+model TrustLogo {
+  id   String @id @default(cuid())
+  name String
+  order Int    @default(0)
+}
+
+model Service {
+  id    String @id @default(cuid())
+  icon  String
+  title String
+  desc  String
+  order Int    @default(0)
+}
+
+model Step {
+  id     String @id @default(cuid())
+  number String
+  title  String
+  desc   String
+  pill   String
+  order  Int    @default(0)
+}
+
+model Solution {
+  id       String   @id @default(cuid())
+  slug     String   @unique // formerly the 'id' in mock-data
+  icon     String
+  title    String
+  desc     String
+  features String   // JSON string or comma-separated
+  link     String
+  order    Int      @default(0)
+}
+
+model Project { // formerly portfolio
+  id    String @id @default(cuid())
+  cat   String
+  emoji String
+  tag   String
+  name  String
+  desc  String
+  order Int    @default(0)
+}
+
+model Testimonial {
+  id     String @id @default(cuid())
+  quote  String
+  author String
+  role   String
+  avatar String
+  order  Int    @default(0)
+}
+
+model Faq {
+  id       String @id @default(cuid())
+  question String
+  answer   String
+  order    Int    @default(0)
+}
