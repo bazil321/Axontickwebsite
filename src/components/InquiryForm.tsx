@@ -90,8 +90,8 @@ const InquiryForm = () => {
 
                                 <div className="space-y-2">
                                     <label className="text-[0.78rem] font-bold uppercase tracking-widest text-muted">Service You Need</label>
-                                    <select className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
-                                        <option disabled selected>Select a service...</option>
+                                    <select defaultValue="" className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
+                                        <option value="" disabled>Select a service...</option>
                                         <option>Omnichannel Chatbot</option>
                                         <option>AI Voice Agent</option>
                                         <option>Marketing & Sales Automation</option>
@@ -104,8 +104,8 @@ const InquiryForm = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                     <div className="space-y-2">
                                         <label className="text-[0.78rem] font-bold uppercase tracking-widest text-muted">Budget Range</label>
-                                        <select className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
-                                            <option disabled selected>Your budget...</option>
+                                        <select defaultValue="" className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
+                                            <option value="" disabled>Your budget...</option>
                                             <option>Under $500</option>
                                             <option>$500 – $1,500</option>
                                             <option>$1,500 – $5,000</option>
@@ -115,8 +115,8 @@ const InquiryForm = () => {
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-[0.78rem] font-bold uppercase tracking-widest text-muted">Timeline</label>
-                                        <select className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
-                                            <option disabled selected>How soon...</option>
+                                        <select defaultValue="" className="w-full px-3.5 py-3 border-[1.5px] border-border-light rounded-[10px] font-medium text-[0.92rem] bg-white focus:outline-none focus:border-dark transition-colors appearance-none">
+                                            <option value="" disabled>How soon...</option>
                                             <option>ASAP</option>
                                             <option>Within 2 weeks</option>
                                             <option>1 month</option>
