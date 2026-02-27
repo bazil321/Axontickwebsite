@@ -1,12 +1,8 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
-import prisma from "@/lib/prisma";
+import { solutions } from "@/lib/mock-data";
 
-const Solutions = async () => {
-    const solutions = await prisma.solution.findMany({
-        orderBy: { order: "asc" },
-    });
-
+const Solutions = () => {
     return (
         <section className="py-[100px] bg-bg-off" id="portfolio">
             <div className="container-custom">
@@ -34,10 +30,10 @@ const Solutions = async () => {
                                 <h3 className="text-[1.1rem] font-bold text-dark">{sol.title}</h3>
                                 <p className="text-[0.9rem] text-muted leading-[1.7] flex-1">{sol.desc}</p>
                                 <ul className="list-none flex flex-col gap-2">
-                                    {(sol.features || "").split(",").map((feat, j) => (
+                                    {sol.features.map((feat, j) => (
                                         <li key={j} className="text-[0.86rem] font-semibold text-dark2 flex items-center gap-2">
                                             <div className="w-[5px] h-[5px] rounded-full bg-gold shrink-0"></div>
-                                            {feat.trim()}
+                                            {feat}
                                         </li>
                                     ))}
                                 </ul>

@@ -1,10 +1,7 @@
-import prisma from "@/lib/prisma";
+import { trustLogos } from "@/lib/mock-data";
 
-const TrustBar = async () => {
-    const logos = await prisma.trustLogo.findMany({
-        orderBy: { order: "asc" },
-    });
-
+const TrustBar = () => {
+    const logos = trustLogos;
     const displayLogos = logos.length > 0 ? [...logos, ...logos] : [];
 
     return (
@@ -19,9 +16,9 @@ const TrustBar = async () => {
 
                 <div className="flex gap-16 w-max animate-scroll px-8 group-hover:[animation-play-state:paused]">
                     {displayLogos.map((logo, i) => (
-                        <div key={`${logo.id}-${i}`} className="flex items-center gap-[10px] whitespace-nowrap font-bold text-[1.05rem] text-dark/20 tracking-tight transition-colors cursor-default hover:text-dark/55">
+                        <div key={`${logo}-${i}`} className="flex items-center gap-[10px] whitespace-nowrap font-bold text-[1.05rem] text-dark/20 tracking-tight transition-colors cursor-default hover:text-dark/55">
                             <div className="w-[7px] h-[7px] rounded-full bg-current opacity-50"></div>
-                            {logo.name}
+                            {logo}
                         </div>
                     ))}
                 </div>
